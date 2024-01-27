@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <h1>Recycle Bin</h1>
+        <table class="table">
+          <br>
+            <tbody>
+              <tr *ngFor="let todo of todos">
+                <th [class.stroke]="todo.isCompleted">{{todo.description}}</th>
+                <td>{{todo.date | date : 'dd.MM.yy hh:mm a'}}</td>
+                <td>{{todo.deletedDate | date : 'dd.MM.yy hh:mm a'}}</td>              
+                <td><a [routerLink]="[]" (click)="undoDeleteTodo(todo.id, todo)"><img class="img-responsive" src="assets/images/undo.png"></a></td>
+                <td><a [routerLink]="[]" (click)="deleteTodoFinally(todo.id)"><img class="img-responsive" src="assets/images/delete.png"></a></td>      
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
